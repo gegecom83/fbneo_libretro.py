@@ -1,6 +1,6 @@
 # FinalBurn Neo [Libretro] Game Launcher
 
-A PyQt5-based GUI launcher for FinalBurn Neo (Libretro core), supporting many retro systems, ROM metadata, and images.
+A PyQt6-based GUI launcher for FinalBurn Neo (Libretro core), supporting many retro systems, ROM metadata, and images.
 
 ## Features
 
@@ -10,7 +10,7 @@ A PyQt5-based GUI launcher for FinalBurn Neo (Libretro core), supporting many re
 - **Configurable:** All settings (paths, controls, XML files) are easily editable in the GUI.
 - **Fast search & filtering:** Find ROMs quickly by title, year, or manufacturer.
 - **Support for Title and Preview Images with automatic prefixing**
-- **Cross-platform:** Works on Windows, Linux, and macOS (requires Python 3, PyQt5, and pygame).
+- **Cross-platform:** Works on Windows, Linux, and macOS (requires Python 3, PyQt6, and pygame).
 
 ## Image Support
 
@@ -50,7 +50,7 @@ To work, place your images in the designated folders and use the correct filenam
 1. **Clone/download** this repository.
 2. Install dependencies:
    ```bash
-   pip install PyQt5 pygame
+   pip install pyqt6 pygame
    ```
 3. Make sure you have [RetroArch](https://www.retroarch.com/) and the FinalBurn Neo core (`fbneo_libretro`).
 4. Place your ROMs in the appropriate folders for each system.
@@ -65,7 +65,7 @@ python fbneo_libretro.py
 ```
 
 - Set up paths to RetroArch, the FBNeo core, and your ROM folders via the **Settings** dialog.
-- Optionally, add XML/DAT files for richer ROM metadata.
+- Add XML/DAT files for richer ROM metadata.
 - Browse, search, and filter your ROMs by system, title, year, or manufacturer.
 - Double-click or press your joystick "select" button to launch a game instantly.
 
@@ -98,20 +98,14 @@ You can configure:
 - Joystick button mappings and scrolling behavior
 - If no image is available, the launcher will display `"image not available"` in place of the image.
 
-The "Auto-create ROM Titles" button is a utility to generate rom_titles_xxxx.txt files, which provide a convenient way to store and display ROM metadata (titles, years, manufacturers) for a system, especially when XML/DAT files are absent or incomplete. However, the application can still display ROMs correctly without these files because it can fall back to XML/DAT metadata or, for specific systems like SNK Neo-Geo CD, use the ROM filenames as titles. The button is particularly useful for:
-
-    Systems without XML/DAT files.
-    Ensuring consistent title display across all ROMs.
-    Creating a portable, simplified metadata file that can be manually edited if needed.
-
-If the rom_titles_xxxx.txt file is missing, the application relies on the XML/DAT file for metadata. For ROMs not found in the XML/DAT file, it uses the ROM's base filename as the title (for SNK Neo-Geo CD) or skips the ROM (for other systems).
+For SNK Neo-Geo CD specific systems, filenames are used as titles.
 
 ---
 
 ## Dependencies
 
 - Python 3.6+
-- [PyQt5](https://pypi.org/project/PyQt5/)
+- [PyQt6](https://pypi.org/project/PyQt5/)
 - [pygame](https://pypi.org/project/pygame/)
 
 ---
